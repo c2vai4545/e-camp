@@ -1,0 +1,64 @@
+table {
+    width: 3px;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+td {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: center;
+}
+
+#negro{
+    background-color: black;
+    color: aliceblue;
+}
+#rojo{
+    background-color: red;
+    color: aliceblue;
+}
+#blanco{
+    background-color: white;
+    color: blue;
+}
+#verde{
+    background-color: green;
+    color: aliceblue;
+}
+#gris{
+    background-color: grey;
+    color: blue;
+}
+#marron{
+    background-color: brown;
+    color: aliceblue;
+}
+#azul{
+    background-color: blue;
+    color: aliceblue;
+}
+#rosado{
+    background-color: pink;
+    color: blue;
+}
+#violeta{
+    background-color: violet;
+    color: aliceblue;
+}
+#amarillo{
+    background-color: yellow;
+    color: blue;
+}
+#turquesa{
+    background-color: turquoise;
+    color: blue;
+}
+#naranja{
+    background-color: orange;
+    color: aliceblue;
+}
+#purpura{
+    background-color: purple;
+    color: aliceblue;
+}
