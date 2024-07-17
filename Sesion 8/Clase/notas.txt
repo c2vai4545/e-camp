@@ -1,1 +1,24 @@
 ciclos
+FOR sintaxis
+
+for(let i = 0; i < 11 ; i ++){  
+
+    console.log(i);
+
+}
+
+for ( iniciamos variable; marcamos hasta cuando se repite; colocamos cuanto se incrementa){
+    //codigo a repetir
+}
+
+WHILE sintaxis
+
+while ( i < 11 ){
+    console.log(i);
+    i = i + 1 ;
+}
+
+while ( condicion ) {
+    //codigo a repetir
+    // aca hay que tener cuidado porque el codigo puede quedar infinito y eso rompera el codigo
+}
