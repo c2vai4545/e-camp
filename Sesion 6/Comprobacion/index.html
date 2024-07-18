@@ -10,69 +10,79 @@
 <body>
 
     <!-- Container para formulario -->
-    <div class="container">
-        <!-- Fila 1 labels 1 -->
-        <div class="row">
-            <div class="col-4 p-2">
-                <label for="nombre">Nombre</label>
-            </div>
-            <div class="col-4 p-2">
-                <label for="apellido">Apellido</label>
-            </div>
-            <div class="col-4 p-2">
-                <label for="user">Nombre de usuario</label>
-            </div>
-        </div>
-        <!-- Fila 2 campos 1 -->
-        <div class="row">
-            <div class="input-group col-4">
+    <div class="container form-group">
+        <form action="./confirmar.html" method="post" target="_blank">
+            <!-- Fila 1 labels 1 -->
+            <div class="row">
                 <div class="col-4 p-2">
-                    <input type="text" name="nombre" class="form-control" aria-label="Username" aria-describedby="basic-addon1" placeholder="Marcos">
+                    <label for="nombre">Nombre</label>
                 </div>
                 <div class="col-4 p-2">
-                    <input type="text" name="apellido" class="form-control" aria-label="Username" aria-describedby="basic-addon1" placeholder="Ortega">
+                    <label for="apellido">Apellido</label>
                 </div>
                 <div class="col-4 p-2">
-                    <div class="input-group">
-                        <span class="input-group-text" id="basic-addon1">@</span>
-                        <input type="text" name="user" class="form-control" placeholder="macO" aria-label="Username" aria-describedby="basic-addon1">
+                    <label for="user">Nombre de usuario</label>
+                </div>
+            </div>
+            <!-- Fila 2 campos 1 -->
+            <div class="row">
+                <div class="input-group col-4">
+                    <div class="col-4 p-2">
+                        <input type="text" required name="nombre" value="Martín" class="form-control" aria-label="Username" aria-describedby="basic-addon1" placeholder="Nombre">
+                    </div>
+                    <div class="col-4 p-2">
+                        <input type="text" required name="apellido" value="Quiroga" class="form-control" aria-label="Username" aria-describedby="basic-addon1" placeholder="Apellido">
+                    </div>
+                    <div class="col-4 p-2">
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <input type="text" name="user" class="form-control" placeholder="macO" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Fila 3 labels 2 -->
-        <div class="row">
-            <div class="col-6 p-2">
-                <label for="ciudad">Ciudad</label>
+            <!-- Fila 3 labels 2 -->
+            <div class="row">
+                <div class="col-6 p-2">
+                    <label for="ciudad">Ciudad</label>
+                </div>
+                <div class="col-3 p-2"> 
+                    <label for="motivo">Motivo</label>
+                </div>
             </div>
-            <div class="col-3 p-2"> 
-                <label for="motivo">Motivo</label>
+            <!-- Fila 4 campos 2 -->
+            <div class="row">
+                <div class="col-6 p-2">
+                    <input type="text" required name="ciudad" value="Montevideo" class="form-control" aria-label="ciudad" aria-describedby="basic-addon1" placeholder="Ciudad">
+                </div>
+                <!-- Select -->
+                <div class="col-3 p-2">
+                    <select class="form-select" required aria-label="Default select example">
+                        <optgroup>
+                            <option value="deposito" selected>Deposito</option>
+                            <option value="giro">Giro</option>
+                            <option value="saldo">Consulta de Saldo</option>
+                        </optgroup>
+                    </select>
+                </div>
             </div>
-        </div>
-        <!-- Fila 4 campos 2 -->
-        <div class="row">
-            <div class="col-6 p-2">
-                <input type="text" name="ciudad" class="form-control" aria-label="ciudad" aria-describedby="basic-addon1" placeholder="Nueva York">
+            <!-- Fila 5 label checkBox -->
+            <div class="row mt-3">
+                <div class="col-6">
+                    <label>¿Desea ver la respuesta en pantalla?</label>
+                    <div class="form-check">
+                        <label for="respuesta" class="form-check-label">Si</label>
+                        <input class="form-check-input" type="checkbox" type="checkbox" value="respuesta" id="respuesta">
+                    </div>
+                </div>
             </div>
-            <!-- Select -->
-            <div class="col-3 p-2">
-                <select class="form-select" aria-label="Default select example">
-                    <optgroup>
-                        <option value="deposito">Deposito</option>
-                        <option value="giro">Giro</option>
-                        <option value="saldo">Consulta de Saldo</option>
-                    </optgroup>
-                </select>
+            <!-- Fila 6 boton de Submit -->
+            <div class="row">
+                <div class="col-3">
+                        <button type="submit" class="btn btn-primary" name="enviar">Enviar</button>
+                </div>
             </div>
-        </div>
-        <!-- Fila 5 label checkBox -->
-        <div class="row">
-            <div class="form-check">
-                <label for="respuesta">¿Desea ver la respuesta en pantalla?</label>
-                <input class="form-check-input" type="checkbox" type="checkbox" value="respuesta" id="defaultCheck1">
-            </div>
-        </div>
-            
+        </form>
     </div>
 
 
