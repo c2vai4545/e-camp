@@ -1,0 +1,1 @@
+var navbar = bootstrap.Navbar.getOrCreateInstance(document.querySelector('#navbarSupportedContent'));
