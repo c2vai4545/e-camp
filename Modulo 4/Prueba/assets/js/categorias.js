@@ -55,7 +55,7 @@
 //     }
 
 
-//     // TODO: cambiar la ruta antes de subir
+//    
 //     getImagenCategoria(categoria) {
 //         switch (categoria) {
 //             case 'Héroes':
