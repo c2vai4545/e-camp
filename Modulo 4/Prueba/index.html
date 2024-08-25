@@ -2,74 +2,20 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3 sidebar">
-                <div class="sidebar-point" data-point="1-5"></div>
-                <div class="sidebar-point" data-point="6-10"></div>
-                <div class="sidebar-point" data-point="11-15"></div>
-                <!-- Add more points as needed -->
-            </div>
-            <div class="col-md-9">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2>Characters</h2>
-                        <div class="card-section">
-                            <h3>Heroes</h3>
-                            <div class="card" style="width: 18rem;">
-                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Luke Skywalker</h5>
-                                    <p class="card-text">Height: 172 cm, Weight: 70 kg</p>
-                                </div>
-                            </div>
-                            <div class="card" style="width: 18rem;">
-                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Han Solo</h5>
-                                    <p class="card-text">Height: 180 cm, Weight: 80 kg</p>
-                                </div>
-                            </div>
-                            <!-- Add more cards as needed -->
-                        </div>
-                        <div class="card-section">
-                            <h3>Villains</h3>
-                            <div class="card" style="width: 18rem;">
-                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Darth Vader</h5>
-                                    <p class="card-text">Height: 202 cm, Weight: 120 kg</p>
-                                </div>
-                            </div>
-                            <div class="card" style="width: 18rem;">
-                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Emperor Palpatine</h5>
-                                    <p class="card-text">Height: 170 cm, Weight: 60 kg</p>
-                                </div>
-                            </div>
-                            <!-- Add more cards as needed -->
-                        </div>
-                        <!-- Add more sections as needed -->
-                    </div>
-                    <div class="col-md-6">
-                        <h2>Selected Characters</h2>
-                        <div id="selected-characters">
-                            <!-- This section will be populated dynamically -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="col-md-3"></div>
+    <div class="container">
+        <div class="container col-md-6" id="heroes-container">
+            <!-- Contenido de la pagina que se trae desde main.js -->
         </div>
     </div>
-
+    <div class="col-md-3"></div>
 
     <script src="./assets/js/bootstrap.min.js"></script>
+    <script type="module" src="./assets/js/main.js"></script>
 </body>
 </html>
