@@ -29,7 +29,7 @@ class Render {
         card.classList.add("card", "m-3");
         const img = document.createElement("img");
         img.src = categoria.imagen;
-        img.classList.add("card-img-top");
+        img.classList.add("card-img-top", "img-card");
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
         const title = document.createElement("h5");
@@ -52,7 +52,7 @@ class Render {
         card.classList.add('card', 'm-3');
         const img = document.createElement("img");
         img.src = character.imagen;
-        img.classList.add("card-img-top");
+        img.classList.add("card-img-top", "img-card");
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
         const title = document.createElement("h5");
