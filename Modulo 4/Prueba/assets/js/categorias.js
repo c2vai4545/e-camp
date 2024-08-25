@@ -1,164 +1,153 @@
-class Categorias {
-    constructor(container) {
-        this.afiliacionesHeroes = [
-            'Rebel Alliance',
-            'Resistance',
-            'Jedi Order',
-            ];
-            
-        this.afiliacionesVillanos = [
-            'Galactic Empire',
-            'First Order',
-            'Sith',
-            ];
-        this.categorias = {};
-        this.container = container;
-    }
-  
-    agregarCategoria(category) {
-        if (!this.categorias[category]) {
-            this.categorias[category] = {
-            points: [],
-            characters: [],
-            };
-        }
-    }
-  
-    agregarPersonaje(category, character) {
-        if (this.categorias[category]) {
-            this.categorias[category].characters.push(character);
-        }
-    }
-  
-    obtenerCategorias() {
-        return Object.keys(this.categorias);
-    }
-  
-    obtenerPersonajes(category) {
-        return this.categorias[category].characters;
-    }
-  
-    generarColorAleatorio() {
-        const r = Math.floor(Math.random() * 256);
-        const g = Math.floor(Math.random() * 256);
-        const b = Math.floor(Math.random() * 256);
-        return `rgb(${r}, ${g}, ${b})`;
-    }
-  
-    generarPunto(category) {
-        const color = this.generarColorAleatorio();
-        const punto = document.createElement("div");
-        punto.classList.add("col-md-2", "rounded-circle", "text-white", "d-flex", "justify-content-center", "align-items-center");
-        punto.style.width = "30px";
-        punto.style.height = "30px";
-        punto.style.marginTop = "20%";
-        punto.style.backgroundColor = color;
-        return punto;
-    }
-  
-    generarTarjetaCategoria(category) {
-        const cardContainer = document.createElement("div");
-        cardContainer.classList.add("m-3"); 
-        const card = document.createElement("div");
-        card.classList.add("card", "m-3");
-        const img = document.createElement("img");
-        img.src = "https://via.placeholder.com/150";
-        img.classList.add("card-img-top");
-        const cardBody = document.createElement("div");
-        cardBody.classList.add("card-body");
-        const title = document.createElement("h5");
-        title.classList.add("card-title");
-        title.textContent = category;
-        const text = document.createElement("p");
-        text.classList.add("card-text");
-        text.textContent = `Categoria: ${category}`;
-        cardBody.appendChild(title);
-        cardBody.appendChild(text);
-        card.appendChild(img);
-        card.appendChild(cardBody);
-        return card;
-    }
-  
-    generarTarjetaPersonaje(character) {
-        const cardContainer = document.createElement("div");
-        cardContainer.classList.add("m-3"); 
-        const card = document.createElement("div");
-        card.classList.add('card', 'm-3');
-        const img = document.createElement("img");
-        img.src = "https://via.placeholder.com/150";
-        img.classList.add("card-img-top");
-        const cardBody = document.createElement("div");
-        cardBody.classList.add("card-body");
-        const title = document.createElement("h5");
-        title.classList.add("card-title");
-        title.textContent = character.name;
-        const text = document.createElement("p");
-        text.classList.add("card-text");
-        text.textContent = `Height: ${character.height} cm, Weight: ${character.weight} kg`;
-        cardBody.appendChild(title);
-        cardBody.appendChild(text);
-        card.appendChild(img);
-        card.appendChild(cardBody);
-        return card;
-    }
-  
-    async obtenerPersonajesYcategorias() {
-        const response = await fetch('https://swapi.dev/api/people/');
-        const data = await response.json();
-        const personajes = data.results;
+// import Render from './render.js';
+
+// class Categorias {
+//     constructor(container) {
+//         this.Heroes = [
+//             'Luke Skywalker',
+//             'C-3PO',
+//             'R2-D2',
+//             'Leia Organa',
+//             'Biggs Darklighter',
+//             'Obi-Wan Kenobi'
+//         ];
+        
+//         this.Villanos = [
+//             'Darth Vader',
+//             'First Order',
+//             'Sith',
+//         ];
+//         this.categorias = {};
+//         this.container = container;
+//         this.render = new Render(container);
+//     }
+
+//     async obtenerPersonajesYcategorias() {
+//         const response = await fetch('https://swapi.dev/api/people/');
+//         const data = await response.json();
+//         const personajes = data.results;
+//         console.log('Response:', data);
+        
       
-        personajes.forEach((personaje) => {
-            const categoria = personaje.species && personaje.species.name ? personaje.species.name : 'Desconocida';
-            this.agregarCategoria(categoria);
-            this.agregarPersonaje(categoria, personaje);
-        
-            // Verificar afiliaciones
-            const afiliaciones = personaje.affiliations;
-            if (afiliaciones) {
-                const esHeroe = afiliaciones.some((afiliacion) => afiliacionesHeroes.includes(afiliacion));
-                const esVillano = afiliaciones.some((afiliacion) => afiliacionesVillanos.includes(afiliacion));        
-                if (esHeroe) {
-                    personaje.tipo = 'heroe';
-                } else if (esVillano) {
-                    personaje.tipo = 'villano';
-                } else {
-                    personaje.tipo = 'desconocido';
-                }
-            }
-        });
-        
-        this.renderizarCategorias();
+//         personajes.forEach((personaje) => {
+//             let categoria;
+//             const nombre = personaje.name;
+//             if (this.Heroes.some((heroe) => nombre.includes(heroe))) {
+//                 categoria = 'Héroes';
+//             } else if (this.Villanos.some((villano) => nombre.includes(villano))) {
+//                 categoria = 'Villanos';
+//             } else {
+//                 categoria = 'Desconocido';
+//             }
+//             personaje.bando = categoria;
+//             personaje.imagen = `./assets/imgs/${personaje.name}.jpg`;
+//             this.agregarCategoria(categoria);
+//             this.agregarPersonaje(categoria, personaje);
+//             console.log(personaje)
+//         });
+      
+//         const categorias = Object.keys(this.categorias).map((categoria) => ({
+//             nombre: categoria,
+//             personajes: this.categorias[categoria],
+//             imagen: this.getImagenCategoria(categoria)
+//         }));
+
+//         await this.render.renderizarCategorias(categorias);
+//     }
+
+
+//     // TODO: cambiar la ruta antes de subir
+//     getImagenCategoria(categoria) {
+//         switch (categoria) {
+//             case 'Héroes':
+//                 return './assets/imgs/Héroes.jpg';
+//             case 'Villanos':
+//                 return './assets/imgs/Villanos.jpg';
+//             case 'Desconocido':
+//                 return './assets/imgs/Neutral.jpg';
+//             default:
+//                 return ''; // o alguna imagen por defecto
+//         }
+//     }
+
+//     agregarCategoria(categoria) {
+//         if (!this.categorias[categoria]) {
+//             this.categorias[categoria] = [];
+//         }
+//     }
+
+//     agregarPersonaje(categoria, personaje) {
+//         this.categorias[categoria].push(personaje);
+//     }
+
+//     obtenerCategorias() {
+//         return Object.keys(this.categorias);
+//     }
+
+//     obtenerPersonajes(categoria) {
+//         return this.categorias[categoria].personajes;
+//     }
+// }
+
+// export default Categorias;
+
+import Render from './render.js';
+import Personajes from './personajes.js';
+
+class Categorias {
+  constructor(container) {
+    this.categorias = {};
+    this.container = container;
+    this.render = new Render(container);
+    this.personajes = new Personajes();
+  }
+
+  async obtenerPersonajesYcategorias() {
+    const personajes = await this.personajes.obtenerPersonajes();
+
+    personajes.forEach((personaje) => {
+      this.agregarCategoria(personaje.bando);
+      this.agregarPersonaje(personaje.bando, personaje);
+    });
+
+    const categorias = Object.keys(this.categorias).map((categoria) => ({
+      nombre: categoria,
+      personajes: this.categorias[categoria],
+      imagen: this.getImagenCategoria(categoria)
+    }));
+
+    await this.render.renderizarCategorias(categorias);
+  }
+
+  getImagenCategoria(categoria) {
+    switch (categoria) {
+      case 'Héroes':
+        return './assets/imgs/Héroes.jpg';
+      case 'Villanos':
+        return './assets/imgs/Villanos.jpg';
+      case 'Desconocido':
+        return './assets/imgs/Neutral.jpg';
+      default:
+        return ''; // o alguna imagen por defecto
     }
-  
-    renderizarCategorias() {
-        const categorias = this.obtenerCategorias();
-        categorias.forEach((categoria) => {
-            const categoryContainer = document.createElement("div");
-            categoryContainer.classList.add("row");
-    
-            const punto = this.generarPunto(categoria);
-            categoryContainer.appendChild(punto);
-    
-            const categoryCardContainer = document.createElement("div");
-            categoryCardContainer.classList.add("col-md-5");
-            const categoryCard = this.generarTarjetaCategoria(categoria);
-            categoryCardContainer.appendChild(categoryCard);
-            categoryContainer.appendChild(categoryCardContainer);
-    
-            const charactersContainer = document.createElement("div");
-            charactersContainer.classList.add("col-md-5");
-            const personajes = this.obtenerPersonajes(categoria);
-            personajes.forEach((personaje, index) => {
-                if (index < 5) {
-                    const card = this.generarTarjetaPersonaje(personaje);
-                    charactersContainer.appendChild(card);
-                }
-            });
-            categoryContainer.appendChild(charactersContainer);
-    
-            this.container.appendChild(categoryContainer);
-        });
+  }
+
+  agregarCategoria(categoria) {
+    if (!this.categorias[categoria]) {
+      this.categorias[categoria] = [];
     }
+  }
+
+  agregarPersonaje(categoria, personaje) {
+    this.categorias[categoria].push(personaje);
+  }
+
+  obtenerCategorias() {
+    return Object.keys(this.categorias);
+  }
+
+  obtenerPersonajes(categoria) {
+    return this.categorias[categoria].personajes;
+  }
 }
-  
+
 export default Categorias;
